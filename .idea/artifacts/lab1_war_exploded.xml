@@ -28,7 +28,6 @@
           <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-util-scan:8.5.50" />
           <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-jaspic-api:8.5.50" />
           <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.8.5" />
-          <element id="library" level="project" name="Maven: commons-fileupload:commons-fileupload:1.2.2" />
           <element id="library" level="project" name="Maven: commons-io:commons-io:2.0.1" />
           <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.1.4.GA" />
           <element id="library" level="project" name="Maven: org.jboss:jboss-vfs:3.2.11.Final" />
