@@ -1,0 +1,47 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="lab1:war exploded">
+    <output-path>$PROJECT_DIR$/target/lab1</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>lab1</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="lab1" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.21" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-catalina:8.5.50" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-servlet-api:8.5.50" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-jsp-api:8.5.50" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-el-api:8.5.50" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-juli:8.5.50" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-annotations-api:8.5.50" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-api:8.5.50" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-jni:8.5.50" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-coyote:8.5.50" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-util:8.5.50" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-util-scan:8.5.50" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-jaspic-api:8.5.50" />
+          <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.8.5" />
+          <element id="library" level="project" name="Maven: commons-fileupload:commons-fileupload:1.2.2" />
+          <element id="library" level="project" name="Maven: commons-io:commons-io:2.0.1" />
+          <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.1.4.GA" />
+          <element id="library" level="project" name="Maven: org.jboss:jboss-vfs:3.2.11.Final" />
+          <element id="library" level="project" name="Maven: javax.mail:mail:1.4.1" />
+          <element id="library" level="project" name="Maven: javax.activation:activation:1.1" />
+          <element id="library" level="project" name="Maven: net.coobird:thumbnailator:0.4.8" />
+          <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/lab1/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="lab1/web/Web" />
+    </root>
+  </artifact>
+</component>
