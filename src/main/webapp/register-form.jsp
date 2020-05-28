@@ -20,11 +20,11 @@
     <div id="formRegister" class="row">
         <div class="col-sm-8 m-auto p-5">
             <h2>Register Form</h2>
-            <form class="needs-validation" novalidate>
+            <form class="needs-validation" novalidate $ref="form">
                 <div class="form-row">
                     <div class="col-md-12 mb-3">
                         <label for="email">*Email</label>
-                        <input type="text" class="form-control" id="email" placeholder="Email" required
+                        <input type="text" class="form-control" id="email" name="email" placeholder="Email" required
                                onblur="checkEmailExist(event, this.value)">
                         <div class="invalid-feedback">
                             Trường dữ liệu này bắt buộc
@@ -34,13 +34,14 @@
                 <div class="form-row">
                     <div class="col-md-6 mb-3">
                         <label for="password">*Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Password" required>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password"
+                               required>
                         <div class="invalid-feedback">
                             Trường dữ liệu này bắt buộc
                         </div>
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label for="password">*Confirm Password</label>
+                        <label for="rePassword">*Confirm Password</label>
                         <input type="password" class="form-control" id="rePassword" placeholder="Confirm Password"
                                onblur="checkSamePass()" required>
                         <div class="invalid-feedback">
@@ -51,14 +52,16 @@
                 <div class="form-row">
                     <div class="col-md-6 mb-3">
                         <label for="firstName">*First name</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="First name" required>
+                        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First name"
+                               required>
                         <div class="invalid-feedback">
                             Trường dữ liệu này bắt buộc
                         </div>
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label for="firstName">*Last name</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="Last name" required>
+                        <label for="lastName">*Last name</label>
+                        <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last name"
+                               required>
                         <div class="invalid-feedback">
                             Trường dữ liệu này bắt buộc
                         </div>
@@ -67,36 +70,35 @@
                 <div class="form-row">
                     <div class="col-md-4 mb-3">
                         <label for="industry">Industry</label>
-                        <select class="custom-select" id="industry">
-                            <option selected disabled value="">Industry</option>
+                        <select class="custom-select" id="industry" name="industry">
                             <c:forEach items="${requestScope.industry}" var="item">
-                                <option value="${item}">${item}</option>
+                                <option value="${item.id}">${item.name}</option>
                             </c:forEach>
 
                         </select>
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="jobTitle">Job title</label>
-                        <input type="text" class="form-control" id="jobTitle" placeholder="Job title">
+                        <input type="text" class="form-control" id="jobTitle" name="jobTitle" placeholder="Job title">
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="company">Company</label>
-                        <input type="text" class="form-control" id="company" placeholder="Company">
+                        <input type="text" class="form-control" id="company" name="company" placeholder="Company">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="col-md-6 mb-3">
                         <label for="city">City</label>
-                        <select class="custom-select" id="city">
-                            <option selected disabled value="">City</option>
+                        <select class="custom-select" id="city" name="city">
                             <c:forEach items="${requestScope.city}" var="item">
-                                <option value="${item}">${item}</option>
+                                <option value="${item.id}">${item.name}</option>
                             </c:forEach>
                         </select>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="telephone">Telephone</label>
-                        <input type="number" class="form-control" id="telephone" placeholder="Telephone">
+                        <input type="number" class="form-control" id="telephone" name="telephone"
+                               placeholder="Telephone">
                         <div class="invalid-feedback">
                             Trường dữ liệu này bắt buộc
                         </div>
@@ -106,8 +108,11 @@
                     <div class="col-md-12 mb-3">
                         <c:forEach items="${requestScope.favorites}" var="item" varStatus="loop">
                             <div class="custom-control custom-checkbox custom-control-inline">
-                                <input type="checkbox" class="custom-control-input" id="customCheck${loop.index}">
-                                <label class="custom-control-label" for="customCheck${loop.index}">${item}</label>
+                                <input type="checkbox" class="custom-control-input"
+                                       name="favorite"
+                                       value="${item.id}"
+                                       id="customCheck${loop.index}">
+                                <label class="custom-control-label" for="customCheck${loop.index}">${item.name}</label>
                             </div>
                         </c:forEach>
                     </div>
@@ -116,13 +121,15 @@
                     <div class="col-md-12 mb-3">
                         <c:forEach items="${requestScope.platform}" var="item" varStatus="loop">
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="customRadioInline${loop.index}" name="customRadioInline1"
+                                <input type="radio"
+                                       name="platform"
+                                       value="${item.id}"
+                                       id="customRadioInline${loop.index}"
                                        class="custom-control-input">
                                 <label class="custom-control-label"
-                                       for="customRadioInline${loop.index}"> ${item} </label>
+                                       for="customRadioInline${loop.index}"> ${item.name} </label>
                             </div>
                         </c:forEach>
-
                     </div>
                 </div>
                 <button class="btn btn-primary" type="submit">Register</button>
@@ -138,13 +145,20 @@
         company.
         </span>
         <h4>You can log in with:</h4>
-        <div>username: <a id="emailShow">teonguyenvan@yahoo.com</a></div>
-        <div>password: <span id="passShow">123456</span></div>
+        <div>username: <a href="" id="emailShow"></a></div>
+        <div>password: <span id="passShow"></span></div>
         <div>Thank you for register!</div>
     </div>
 </div>
 
 <script>
+    function scroll() {
+        const errorElements = document.querySelectorAll(
+            "input.form-control:invalid");
+        $('html, body').animate({
+            scrollTop: $(errorElements[0]).offset().top
+        }, 500);
+    }
     // Example starter JavaScript for disabling form submissions if there are invalid fields
     (function () {
         'use strict';
@@ -158,36 +172,61 @@
                         event.preventDefault();
                         event.stopPropagation();
 
-
                         form.classList.add('was-validated');
                         if ($(this).find('#email').hasClass('is-invalid') === true) {
                             // $('#email').removeClass('form-control');
                             // $('#email').className('form-control').invalid
                         }
 
-                        const errorElements = document.querySelectorAll(
-                            "input.form-control:invalid");
-                        $('html, body').animate({
-                            scrollTop: $(errorElements[0]).offset().top
-                        }, 500);
+                        scroll()
                     } else {
                         event.preventDefault();
                         event.stopPropagation();
                         const formRegister = $('#formRegister');
                         const userInfo = $('#userInfo');
-                        formRegister.css('display', 'none');
-                        userInfo.css('display', 'block');
 
-                        $('#nameShow').text($('#firstName').val() + ' ' + $('#lastName').val());
-                        if ($('#company').val() != '') {
-                            $('#companyShow').css('display', 'inline-block');
-                            $('#companyName').text($('#company').val());
-                        } else {
-                            $('#companyShow').css('display', 'none');
-                            $('#companyName').text('');
-                        }
-                        $('#emailShow').text($('#email').val());
-                        $('#passShow').text($('#password').val());
+                        console.log('call add user servlet');
+                        const form_data = $(this).serialize();
+                        console.log(form_data)
+                        $.ajax({
+                            url: 'addUser',
+                            type: 'post',
+                            data: form_data,
+                            datatype: 'json',
+                            headers: {
+                                Accept: "application/json; charset=utf-8",
+                            },
+                            error: function () {
+                                console.log('error')
+                            },
+                            success: function (data) {
+                                console.log('success');
+                                var myObj = JSON.parse(data);
+                                var result = myObj.result;
+                                if (result === 'false') {
+                                    // show error
+                                    console.log('Thêm thất bại')
+                                    scroll()
+
+                                } else {
+                                    formRegister.css('display', 'none');
+                                    userInfo.css('display', 'block');
+
+                                    $('#nameShow').text($('#firstName').val() + ' ' + $('#lastName').val());
+                                    if ($('#company').val() !== '') {
+                                        $('#companyShow').css('display', 'inline-block');
+                                        $('#companyName').text($('#company').val());
+                                    } else {
+                                        $('#companyShow').css('display', 'none');
+                                        $('#companyName').text('');
+                                    }
+
+                                    $('#emailShow').text($('#email').val());
+                                    $('#passShow').text($('#password').val());
+                                }
+                            }
+                        })
+
                     }
                 });
             });
@@ -198,12 +237,15 @@
         const pass = $('#password').val();
         const rePass = $('#rePassword').val();
         const errorDiv = $('#rePassword').parent().find('.invalid-feedback');
-        if (pass !== rePass) {
-            errorDiv.text("Password nhập lại không đúng");
-            $('#rePassword').addClass('is-invalid')
-        } else {
-            errorDiv.text("");
-            $('#rePassword').addClass('is-valid')
+        if ($('#rePassword').val().length > 0) {
+            if (pass !== rePass) {
+                errorDiv.text("Password nhập lại không đúng");
+                $('#rePassword').addClass('is-invalid')
+            } else {
+                errorDiv.text("");
+                $('#rePassword').removeClass('is-valid')
+                $('#rePassword').removeClass('is-invalid')
+            }
         }
     }
 
@@ -232,7 +274,11 @@
                     // show error
                     const errorDiv = $('#email').parent().find('.invalid-feedback');
                     errorDiv.text("Tên người dùng đã được sử dụng. Hãy thử tên khác.");
+                    $('#email').removeClass('is-valid');
                     $('#email').addClass('is-invalid')
+                } else {
+                    $('#email').removeClass('is-invalid');
+                    $('#email').removeClass('is-valid');
                 }
             }
         })

@@ -16,4 +16,8 @@ public class Util {
     public static String fullPath(String path) {
         return "http://localhost:8080/lab1_war_exploded/" + path;
     }
+
+    public static void main(String[] args) {
+        System.out.println(Integer.parseInt(""));
+    }
 }
