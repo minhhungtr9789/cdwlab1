@@ -274,6 +274,7 @@
                     // show error
                     const errorDiv = $('#email').parent().find('.invalid-feedback');
                     errorDiv.text("Tên người dùng đã được sử dụng. Hãy thử tên khác.");
+                    $('#email').prop('', true)
                     $('#email').removeClass('is-valid');
                     $('#email').addClass('is-invalid')
                 } else {
